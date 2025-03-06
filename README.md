@@ -65,9 +65,3 @@ The script performs:
 - Collaborate with utilities for power grid upgrades.
 - Plan for infrastructure scaling based on predicted EV growth.
 
-## License
-This project is licensed under the MIT License.
-
-## Author
-[Your Name] - EV Data Analysis Project
-
