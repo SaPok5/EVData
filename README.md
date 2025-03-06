@@ -1,56 +1,73 @@
 # EV Charging Station Analysis
 
-## 📌 Project Overview
-This project analyzes electric vehicle (EV) data to determine optimal locations for EV charging stations across **Washington state**. The goal is to maximize accessibility, optimize infrastructure costs, and ensure equitable service across urban and rural areas.
+## Overview
+This project analyzes electric vehicle (EV) data to identify optimal locations for EV charging stations in Washington state. The analysis includes clustering, heatmap visualization, predictive modeling, and comparisons between BEVs (Battery Electric Vehicles) and PHEVs (Plug-in Hybrid Electric Vehicles). The dataset is stored and processed using PostgreSQL.
 
-## 🎯 Objectives
-- Identify **high-demand regions** for charging stations.
-- Analyze **BEV vs. PHEV distribution** to understand charging needs.
-- Evaluate the **impact of utility networks** on EV adoption.
-- **Predict future EV growth** and infrastructure requirements based on model year trends.
+## Features
+- **Database Integration**: Loads and processes data using PostgreSQL.
+- **Geospatial Analysis**: Uses K-Means clustering to find optimal charging locations.
+- **Heatmap Visualization**: Displays EV density across the state.
+- **EV Type Comparison**: Analyzes the distribution of BEVs vs. PHEVs.
+- **Growth Prediction**: Uses machine learning to predict future EV adoption trends.
+- **Utility Analysis**: Examines EV distribution by electric utility provider.
+- **Effectiveness Analysis**: Compares range and adoption rates of BEVs vs. PHEVs.
 
-## 🗂️ Dataset
-- **Source:** CleanEV.csv
-- **Key Columns:** `latitude`, `longitude`, `electric_vehicle_type`, `model_year`, `electric_utility`
+## Installation
+### Prerequisites
+- Python 3.8+
+- PostgreSQL
+- Required Python libraries:
 
-## 🚀 Features & Analysis
-### ✅ Data Processing
-- Load and clean EV data using **Pandas**.
-- Store data in **PostgreSQL** for efficient querying.
-
-### ✅ Geospatial Analysis
-- Generate **EV density heatmaps** using `folium`.
-- Identify **high-EV-density regions** for charging stations.
-
-### ✅ Statistical Analysis
-- **BEV vs. PHEV** distribution visualization.
-- **EV growth trends** over time.
-- **Electric utility impact** on charging infrastructure.
-
-## 🛠️ Installation & Setup
-### 1️⃣ Install Required Libraries
-Run the following command to install dependencies:
-```bash
-pip install pandas psycopg2 sqlalchemy folium seaborn matplotlib
+```sh
+pip install pandas psycopg2 sqlalchemy folium seaborn matplotlib scikit-learn
 ```
 
-### 2️⃣ Configure PostgreSQL Database
-Update `DB_NAME`, `DB_USER`, `DB_PASS`, `DB_HOST`, and `DB_PORT` in the notebook.
+## Usage
+### 1. Setup PostgreSQL Database
+Ensure PostgreSQL is running and update the connection parameters in the script:
+```python
+DB_NAME = "ev_registrations"
+DB_USER = "postgres"
+DB_PASS = "your_password"
+DB_HOST = "localhost"
+DB_PORT = "5432"
+```
 
-### 3️⃣ Run the Jupyter Notebook
-Execute each cell in `EV_Analysis.ipynb` to process and analyze the data.
+### 2. Load Data into Database
+The script loads `CleanEV.csv` into a PostgreSQL table named `ev_data`.
+```sh
+python ev_analysis.py
+```
 
-## 📊 Outputs
-- **EV Density Heatmap** (Rendered inline in Jupyter Notebook)
-- **EV Adoption Over Time** (Bar charts & trend analysis)
-- **EV Utility Distribution** (Top utility providers serving EV users)
+### 3. Run Analysis
+The script performs:
+- EV heatmap visualization
+- K-Means clustering for charging station optimization
+- EV growth predictions
+- Distribution analysis by utility providers
 
-## 👨‍💻 Contributing
-Feel free to contribute by submitting **pull requests** or reporting **issues**.
+## Results & Insights
+### Key Findings
+1. **High EV Density Areas**
+   - Counties with highest EV adoption should prioritize charging station deployment.
+2. **BEV vs. PHEV Considerations**
+   - BEVs need fast chargers, while PHEVs require more Level 2 stations.
+3. **Utility Providers**
+   - Collaboration with top electric utilities is crucial for infrastructure scaling.
+4. **Future EV Growth**
+   - EV adoption is projected to grow 20-30% annually.
+5. **Equity in Charging Access**
+   - Rural areas require subsidized charging infrastructure.
 
-## 📜 License
-This project is **open-source** and licensed under the MIT License.
+### Recommendations
+- Install fast-charging hubs in high-adoption areas.
+- Expand Level 2 charging in underserved regions.
+- Collaborate with utilities for power grid upgrades.
+- Plan for infrastructure scaling based on predicted EV growth.
 
----
-🚗💡 **Empowering EV Infrastructure Planning Through Data!**
+## License
+This project is licensed under the MIT License.
+
+## Author
+[Your Name] - EV Data Analysis Project
 
